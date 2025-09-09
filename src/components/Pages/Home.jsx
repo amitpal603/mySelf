@@ -102,7 +102,7 @@ function Home() {
                     <div className="w-32 h-32 bg-gray-400 rounded-full mx-auto mb-4 flex justify-center items-center">
                       <img 
                       className="object-cover h-30 w-30 rounded-full"
-                      src={photo} alt="" />
+                      src={photo} alt="Profile Photo" />
                     </div>
                     <p className="text-sm"></p>
                   </div>
@@ -128,6 +128,9 @@ function Home() {
                 <div className="w-full h-full bg-gray-300 rounded-2xl transform -rotate-6 scale-105 flex items-center justify-center text-gray-600">
                   <div className="text-center">
                     <div className="w-20 h-20 bg-gray-400 rounded-full mx-auto mb-2">
+                    <img 
+                      className="object-cover h-30 w-30 rounded-full"
+                      src={photo} alt="Profile Photo" />
                     </div>
                     <p className="text-xs"></p>
                   </div>

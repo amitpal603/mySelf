@@ -127,9 +127,9 @@ function Home() {
               <div className="w-48 h-48 bg-gradient-to-br from-teal-400 to-blue-500 rounded-2xl shadow-xl shadow-teal-400/30 transform rotate-6 hover:rotate-3 transition-transform duration-500 overflow-hidden">
                 <div className="w-full h-full bg-gray-300 rounded-2xl transform -rotate-6 scale-105 flex items-center justify-center text-gray-600">
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-gray-400 rounded-full mx-auto mb-2">
+                    <div className="w-20 h-20 bg-gray-400 rounded-full mx-auto mb-2 flex justify-center items-center">
                     <img 
-                      className="object-cover h-30 w-30 rounded-full"
+                      className="object-cover h-19 w-19 rounded-full"
                       src={photo} alt="Profile Photo" />
                     </div>
                     <p className="text-xs"></p>

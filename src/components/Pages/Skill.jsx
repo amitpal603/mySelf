@@ -2,8 +2,8 @@ import React from 'react'
 
 function Skill() {
   return (
-    <div>
-      Skill page
+    <div className='mt-20'>
+      skill page
     </div>
   )
 }

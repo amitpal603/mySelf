@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState('/');
+  const location = useLocation();
 
   const navLinks = [
     { to: '/', label: 'Home' },
@@ -38,8 +39,12 @@ function Navbar() {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isOpen]);
 
-  const handleLinkClick = (to) => {
-    setActiveLink(to);
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  const handleLinkClick = () => {
     setIsOpen(false);
   };
 
@@ -59,12 +64,12 @@ function Navbar() {
             
             {/* Logo */}
             <div className="flex-shrink-0 group">
-              <p className="text-white text-xl sm:text-2xl font-bold cursor-pointer transform transition-all duration-300 hover:scale-105">
+              <Link to="/" className="text-white text-xl sm:text-2xl font-bold cursor-pointer transform transition-all duration-300 hover:scale-105 inline-block">
                 PORT{" "}
                 <span className="text-teal-400 inline-block transform transition-all duration-300 group-hover:rotate-12">
                   folio
                 </span>
-              </p>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
@@ -72,10 +77,10 @@ function Navbar() {
               <ul className="flex items-center space-x-8">
                 {navLinks.map((link, index) => (
                   <li key={index} className="relative group">
-                    <button
-                      onClick={() => handleLinkClick(link.to)}
-                      className={`relative px-3 py-2 text-base font-medium transition-all duration-300 transform hover:scale-105 ${
-                        activeLink === link.to
+                    <Link
+                      to={link.to}
+                      className={`relative px-3 py-2 text-base font-medium transition-all duration-300 transform hover:scale-105 inline-block ${
+                        location.pathname === link.to
                           ? 'text-teal-400 font-bold'
                           : 'text-white hover:text-teal-400'
                       }`}
@@ -85,17 +90,17 @@ function Navbar() {
                       {/* Animated underline */}
                       <span 
                         className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-400 to-blue-400 transform origin-left transition-all duration-300 ${
-                          activeLink === link.to ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                          location.pathname === link.to ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                         }`}
                       />
                       
                       {/* Hover glow effect */}
                       <span 
                         className={`absolute inset-0 rounded-lg bg-teal-400/10 transform transition-all duration-300 ${
-                          activeLink === link.to ? 'scale-100 opacity-100' : 'scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100'
+                          location.pathname === link.to ? 'scale-100 opacity-100' : 'scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100'
                         }`}
                       />
-                    </button>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -137,11 +142,12 @@ function Navbar() {
         >
           <div className="px-4 pt-2 pb-6 space-y-1 bg-black/98 backdrop-blur-md border-t border-gray-800">
             {navLinks.map((link, index) => (
-              <button
+              <Link
                 key={index}
-                onClick={() => handleLinkClick(link.to)}
-                className={`group relative w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 transform hover:scale-[1.02] active:scale-95 ${
-                  activeLink === link.to
+                to={link.to}
+                onClick={handleLinkClick}
+                className={`group relative w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 transform hover:scale-[1.02] active:scale-95 block ${
+                  location.pathname === link.to
                     ? 'text-teal-400 font-bold bg-teal-400/10'
                     : 'text-white hover:text-teal-400 hover:bg-gray-800/50'
                 }`}
@@ -155,13 +161,13 @@ function Navbar() {
                 {/* Active indicator */}
                 <div 
                   className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-teal-400 to-blue-400 rounded-r-full transform transition-all duration-300 ${
-                    activeLink === link.to ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-50'
+                    location.pathname === link.to ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-50'
                   }`}
                 />
                 
                 {/* Hover effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-400/5 to-blue-400/5 rounded-lg transform scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300" />
-              </button>
+              </Link>
             ))}
             
             {/* Mobile menu decoration */}

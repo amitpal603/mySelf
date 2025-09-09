@@ -2,8 +2,8 @@ import React from 'react'
 
 function Project() {
   return (
-    <div>
-      Project
+    <div className='mt-20'>
+      project page
     </div>
   )
 }

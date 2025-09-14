@@ -31,8 +31,8 @@ function Skill() {
       icon: Database,
       delay: '0.4s',
       technologies: [
-        { name: 'MongoDB', level: 85 },
-        { name: 'MySQL', level: 82 },
+        { name: 'MongoDB', level: 65 },
+        { name: 'MySQL', level: 70 },
       ],
       gradient: 'from-orange-500 to-red-500'
     }

@@ -81,7 +81,7 @@ function Home() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative w-12 h-12 flex items-center justify-center border-2 border-teal-400 rounded-full text-teal-400 hover:bg-teal-400 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12"
+                    className=" hover:rotate-12 group relative w-12 h-12 flex items-center justify-center border-2 border-teal-400 rounded-full text-teal-400 hover:bg-teal-400 hover:text-white transition-all duration-300 transform hover:scale-110"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <social.icon size={20} />

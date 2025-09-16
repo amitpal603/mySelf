@@ -17,7 +17,7 @@ function Skill1() {
             {/* Spinning border */}
             <div className="absolute h-20 w-20 border-t-4 border-teal-400 rounded-full animate-spin"></div>
             {/* Inner circle */}
-            <div className="h-16 w-16 bg-black text-teal-400 rounded-full flex justify-center items-center font-bold hover:bg-teal-700 hover:text-white hover:cursor-pointer">
+            <div  className="h-16 w-16 bg-black text-teal-400 rounded-full flex justify-center items-center font-bold hover:bg-teal-700 hover:text-white hover:cursor-pointer">
               {skill}
             </div>
           </div>

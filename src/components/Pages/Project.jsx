@@ -10,11 +10,11 @@ function Project() {
   const projects = [
     {
       id: 1,
-      title: 'TaskFlow Pro',
+      title: 'TodoSphere',
       description: 'A sophisticated task-management ecosystem with real-time sync, intuitive drag-and-drop, and team collaboration features.',
       image: 'https://bluinsights.aws/uploads/create_new_todos_project_Copie_03841e919d.png',
       category: 'web',
-      tags: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
+      tags: ['React', 'Node.js/Express', 'MongoDB', 'Three.js'],
       date: 'Nov 2025',
       github: [
         { name: 'Frontend', url: 'https://github.com/amitpal603/frontend.git' },
@@ -32,6 +32,20 @@ function Project() {
       date: 'June 2025',
       github: 'https://github.com/amitpal603/rock-pepar.git',
       demo: 'https://rock-pepar-zma4.vercel.app/'
+    },
+    {
+      id: 3,
+      title: 'PDF Convertor',
+      description: 'An interactive PDF convertor experience featuring advanced computer , smooth CSS animations, and score persistence.',
+      image: 'https://tse3.mm.bing.net/th/id/OIP.xSU7P7WrpMLXLA_9-Dk_BwHaD4?pid=Api&P=0&h=180',
+      category: 'web',
+      tags: ["React", "Node.js/Express", "MongoDB" , "Tailwind", "cloudinary", "pdfToolKit"],
+      date: 'June 2025',
+      github: [
+        { name: 'Frontend', url: 'https://github.com/amitpal603/pdf-convertor-frontend.git' },
+        { name: 'Backend', url: 'https://github.com/amitpal603/pdf-convertor.git' }
+      ],
+      demo: 'https://pdf-convertor-frontend.vercel.app/'
     },
   ];
 
@@ -218,4 +232,4 @@ function Project() {
   );
 }
 
-export default Project;
+export default Project;

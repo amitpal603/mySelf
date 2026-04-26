@@ -3,6 +3,8 @@ import { Instagram, Twitter, Linkedin, Github, ArrowRight } from "lucide-react";
 import photo from '/src/assets/photo.jpg';
 import Aboutme from "./Aboutme";
 
+import ThreeAnimation from "../Extra/ThreeAnimation";
+
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [currentTech, setCurrentTech] = useState(0);
@@ -25,14 +27,16 @@ function Home() {
       {/* Hero Section */}
       <section className="relative min-h-[95vh] w-full flex items-center justify-center overflow-hidden px-6 pt-20">
         
-        {/* Advanced Mesh Gradient Background */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-teal-500/20 blur-[120px] animate-pulse" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/20 blur-[120px] animate-pulse delay-700" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full bg-purple-500/10 blur-[150px] animate-pulse delay-1000" />
+        {/* Three.js Background Animation */}
+        <ThreeAnimation />
+
+        {/* Advanced Mesh Gradient Background (Layered) */}
+        <div className="absolute inset-0 z-[1] pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-teal-500/10 blur-[120px] animate-pulse" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/10 blur-[120px] animate-pulse delay-700" />
           
           {/* Grid Pattern Overlay */}
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 brightness-100 contrast-150 mix-blend-overlay"></div>
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]"></div>
         </div>
 

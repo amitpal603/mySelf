@@ -1,133 +1,133 @@
 import React from "react";
-import { Code, Database, Globe, Layers, Zap, Award } from "lucide-react";
+import { Code, Database, Globe, Layers, Zap, Award, Target, Rocket, Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 function About() {
+  const navigate = useNavigate();
+
   const skills = [
-    { name: "Frontend", icon: Globe, items: ["React.js", "Tailwind CSS", "JavaScript"] },
-    { name: "Backend", icon: Database, items: ["Node.js", "Express", "MongoDB", "mySql"] },
-    { name: "Tools", icon: Layers, items: ["Git", "Postman"] }
+    { name: "Frontend", icon: Globe, items: ["React.js", "Tailwind CSS", "JavaScript", "TypeScript"], color: "from-teal-400 to-blue-500" },
+    { name: "Backend", icon: Database, items: ["Node.js", "Express", "MongoDB", "MySQL"], color: "from-purple-500 to-pink-500" },
+    { name: "Solutions", icon: Layers, items: ["System Design", "API Architecture", "Performance", "Security"], color: "from-orange-400 to-red-500" }
   ];
 
-  const highlights = [
-    { icon: Code, title: "Clean Code", description: "Writing maintainable and scalable solutions" },
-    { icon: Zap, title: "Performance", description: "Optimizing for speed and efficiency" },
-    { icon: Award, title: "Quality", description: "Delivering excellence in every project" }
+  const values = [
+    { icon: Target, title: "Precision", description: "Meticulous attention to detail in every line of code as well as UI design." },
+    { icon: Rocket, title: "Innovation", description: "Constantly exploring and implementing cutting-edge web technologies." },
+    { icon: Heart, title: "Passion", description: "Dedicated to creating digital experiences that resonate with users." }
   ];
-  const navigate = useNavigate()
+
   return (
-    <div className="flex flex-col">
-      {/* Hero Section with Gradient */}
-      <div className="relative mt-20 bg-gradient-to-b from-black via-cyan-950 to-cyan-600 min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-              About <span className="bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">Me</span>
-            </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-cyan-400 mx-auto mb-8"></div>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Full Stack Developer passionate about building elegant digital solutions
-            </p>
-          </div>
-        </div>
+    <div className="min-h-screen bg-black overflow-hidden pt-20">
+      {/* Background Mesh */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,#2dd4bf15,transparent_40%),radial-gradient(circle_at_80%_80%,#60a5fa15,transparent_40%)]" />
       </div>
 
-      {/* Main Content Section */}
-      <div className="bg-gradient-to-b from-cyan-600 via-cyan-700 to-black py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Introduction Card */}
-          <div className="bg-gray-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-2xl p-8 md:p-12 mb-16 shadow-2xl shadow-cyan-500/20">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Hello, I'm a <span className="text-cyan-400">Full Stack Developer</span>
-            </h2>
-            <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              Motivated and detail-oriented Full Stack Developer with a strong foundation in both frontend and backend technologies. 
-              Experienced in designing and deploying responsive, user-focused web applications using React.js and Node.js.
-            </p>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              Proficient in developing RESTful APIs, optimizing database performance, and enhancing scalability. Passionate about 
-              continuous learning and delivering high-quality digital solutions that create measurable impact.
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
+        {/* Hero Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+          <div className="space-y-8 animate-float">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-400/10 border border-teal-400/20 text-teal-400 text-xs font-bold tracking-widest uppercase">
+              The Journey
+            </div>
+            <h1 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-[0.9]">
+              Driven by <br />
+              <span className="text-teal-gradient">Purpose.</span>
+            </h1>
+            <p className="text-gray-400 text-xl leading-relaxed max-w-xl">
+              I'm <span className="text-white font-bold">Amit Pal</span>, a software engineer 
+              who believes that technology should be as beautiful as it is functional. 
+              My mission is to craft digital products that leave a lasting impression.
             </p>
           </div>
 
-          {/* Highlights Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {highlights.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div 
-                  key={index}
-                  className="bg-gray-900/60 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-6 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/20"
-                >
-                  <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-400 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="w-7 h-7 text-black" />
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-tr from-teal-400/20 to-blue-500/20 rounded-[3rem] blur-3xl animate-pulse" />
+            <div className="glass p-10 md:p-16 rounded-[3rem] border border-white/10 shadow-2xl relative z-10">
+               <div className="space-y-8">
+                  <div className="w-16 h-1 w-24 bg-teal-400 rounded-full" />
+                  <p className="text-gray-300 text-lg leading-loose italic">
+                    "Every digital challenge is an opportunity to innovate. I don't just write code; 
+                    I build interfaces that tell a story and solve real-world problems with elegance."
+                  </p>
+                  <div className="flex items-center gap-4">
+                     <div className="w-12 h-12 rounded-full bg-teal-400/20 border border-teal-400/40 flex items-center justify-center">
+                        <Award className="text-teal-400" size={24} />
+                     </div>
+                     <div>
+                        <p className="text-white font-bold">Amit Pal</p>
+                        <p className="text-teal-400/60 text-xs font-bold uppercase tracking-widest">Full Stack Pioneer</p>
+                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-gray-400">{item.description}</p>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Values Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+          {values.map((item, index) => (
+            <div key={index} className="glass p-10 rounded-[2.5rem] border border-white/5 hover:border-teal-400/30 transition-all group">
+              <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-400 group-hover:text-black transition-all">
+                <item.icon size={28} />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+              <p className="text-gray-400 leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Skill Matrix */}
+        <div className="space-y-12">
+          <div className="text-center">
+             <h2 className="text-4xl font-black text-white tracking-tighter">TECHNICAL STACK</h2>
+             <div className="h-1 w-24 bg-teal-400 mx-auto mt-4 rounded-full" />
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            {skills.map((skill, index) => (
+              <div key={index} className="glass overflow-hidden rounded-[2.5rem] border border-white/5 group">
+                <div className={`h-2 w-full bg-gradient-to-r ${skill.color} opacity-30 group-hover:opacity-100 transition-opacity`} />
+                <div className="p-10 space-y-8">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-teal-400 group-hover:scale-110 transition-transform">
+                      <skill.icon size={24} />
+                    </div>
+                    <h3 className="text-xl font-bold text-white uppercase tracking-tight">{skill.name}</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {skill.items.map((tech, i) => (
+                      <span key={i} className="px-4 py-2 bg-white/5 rounded-xl text-sm text-gray-400 border border-white/5 group-hover:border-white/10 transition-colors">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
+        </div>
 
-          {/* Skills Section */}
-          <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">
-              Technical <span className="text-cyan-400">Skills</span>
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {skills.map((skill, index) => {
-                const Icon = skill.icon;
-                return (
-                  <div 
-                    key={index}
-                    className="bg-gray-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-2xl p-8 hover:border-cyan-500/60 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20"
-                  >
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-400 rounded-lg flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-black" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-white">{skill.name}</h3>
-                    </div>
-                    <div className="space-y-3">
-                      {skill.items.map((item, idx) => (
-                        <div 
-                          key={idx}
-                          className="flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition-colors"
-                        >
-                          <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Call to Action */}
-          <div className="bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 backdrop-blur-sm border border-cyan-500/40 rounded-2xl p-8 md:p-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Let's Build Something Amazing
-            </h2>
-            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              I'm always excited to collaborate on innovative projects and bring creative ideas to life through code.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate("/project")} className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-cyan-400 text-black rounded-lg hover:from-cyan-400 hover:to-cyan-300 transition-all duration-200 font-semibold shadow-lg shadow-cyan-500/50">
-                View Projects
-              </button>
-              <button className="px-8 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all duration-200 font-semibold border border-cyan-500/30">
-                Contact Me
-              </button>
-            </div>
+        {/* Call to Action */}
+        <div className="mt-40 glass p-16 rounded-[3rem] border border-white/10 text-center relative overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-tr from-teal-400/5 via-transparent to-blue-500/5" />
+          <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-8 relative z-10">
+            Let's build the <span className="text-teal-gradient">Future</span> Together.
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
+            <button 
+              onClick={() => navigate("/project")} 
+              className="px-10 py-5 bg-teal-400 hover:bg-teal-500 text-black font-black rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-xl shadow-teal-500/20"
+            >
+              Explore My Work
+            </button>
+            <button 
+              onClick={() => navigate("/contact")}
+              className="px-10 py-5 glass border border-white/10 text-white font-black rounded-2xl transition-all hover:bg-white/5"
+            >
+              Get In Touch
+            </button>
           </div>
         </div>
       </div>
@@ -135,4 +135,4 @@ function About() {
   );
 }
 
-export default About;
+export default About;

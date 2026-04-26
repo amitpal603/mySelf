@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Instagram, Twitter, Linkedin } from "lucide-react";
-import photo  from '/src/assets/photo.jpg'
+import { Instagram, Twitter, Linkedin, Github, ArrowRight } from "lucide-react";
+import photo from '/src/assets/photo.jpg';
 import Aboutme from "./Aboutme";
 
 function Home() {
@@ -8,196 +8,127 @@ function Home() {
   const [currentTech, setCurrentTech] = useState(0);
   
   const technologies = [
-    "HTML", "CSS", "JavaScript", "React JS", "Node.js", 
-    "MongoDB", "Express JS", "Tailwind CSS", "MySQL"
+    "HTML5", "CSS3", "JavaScript", "React JS", "Node.js", 
+    "MongoDB", "Express", "TailwindCSS", "Next.js"
   ];
 
   useEffect(() => {
     setIsVisible(true);
-    
     const interval = setInterval(() => {
       setCurrentTech(prev => (prev + 1) % technologies.length);
-    }, 2000);
-
+    }, 2500);
     return () => clearInterval(interval);
-  }, []);
+  }, [technologies.length]);
 
   return (
-    <div className="min-h-screen w-full">
-      {/* First Section - Original Hero Section */}
-      <div className="min-h-screen w-full bg-gradient-to-br from-black via-gray-900 to-teal-400 flex justify-center items-center p-4 relative overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-teal-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-          <div className="absolute top-3/4 right-1/4 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
-          <div className="absolute bottom-1/4 left-1/2 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-2000"></div>
+    <div className="min-h-screen w-full bg-black">
+      {/* Hero Section */}
+      <section className="relative min-h-[95vh] w-full flex items-center justify-center overflow-hidden px-6 pt-20">
+        
+        {/* Advanced Mesh Gradient Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-teal-500/20 blur-[120px] animate-pulse" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/20 blur-[120px] animate-pulse delay-700" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full bg-purple-500/10 blur-[150px] animate-pulse delay-1000" />
+          
+          {/* Grid Pattern Overlay */}
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]"></div>
         </div>
 
-        <div className={`relative z-10 w-full max-w-7xl mx-auto transition-all duration-1000 transform ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+        <div className={`relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           
-          {/* Desktop and Tablet Layout */}
-          <div className="hidden md:flex bg-gray-800/80 backdrop-blur-lg rounded-2xl shadow-2xl shadow-teal-400/20 border border-gray-700/50 min-h-[500px] overflow-hidden">
-            
-            {/* Left Content */}
-            <div className="w-full md:w-1/2 p-8 lg:p-12 flex flex-col justify-center space-y-6">
-              <div className={`transform transition-all duration-1000 delay-300 ${
-                isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
-              }`}>
-                <h1 className="text-2xl lg:text-3xl text-white font-bold">
-                  Hello, I'm{" "}
-                  <span className="block text-4xl lg:text-5xl text-teal-400 mt-2 bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent animate-pulse">
-                    Amit Pal
-                  </span>
-                </h1>
+          {/* Left Content */}
+          <div className="space-y-8 text-center lg:text-left">
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-400/10 border border-teal-400/20 text-teal-400 text-xs font-semibold tracking-wider uppercase animate-bounce">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-400"></span>
+                </span>
+                Available for projects
               </div>
               
-              <div className={`transform transition-all duration-1000 delay-500 ${
-                isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
-              }`}>
-                <h2 className="text-lg lg:text-xl text-white font-medium">
-                  I am a Full Stack Developer{" "}
-                  <span className="block mt-2 text-teal-400 font-bold text-xl lg:text-2xl min-h-[2rem]">
-                    <span className="inline-block animate-bounce">
-                      {technologies[currentTech]}
-                    </span>
-                    <span className="animate-pulse ml-1">_</span>
-                  </span>
-                </h2>
-              </div>
-
-              {/* Social Links */}
-              <div className={`flex gap-4 pt-4 transform transition-all duration-1000 delay-700 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
-              }`}>
-                {[
-                  { href: "https://www.instagram.com/simple_smile_heart/", icon: Instagram, label: "Instagram" },
-                  { href: "https://x.com/PalAmit92585", icon: Twitter, label: "Twitter" },
-                  { href: "https://www.linkedin.com/in/amit-pal-82b1a8271/", icon: Linkedin, label: "LinkedIn" }
-                ].map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className=" hover:rotate-12 group relative w-12 h-12 flex items-center justify-center border-2 border-teal-400 rounded-full text-teal-400 hover:bg-teal-400 hover:text-white transition-all duration-300 transform hover:scale-110"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <social.icon size={20} />
-                    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                      {social.label}
-                    </span>
-                  </a>
-                ))}
-              </div>
+              <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight">
+                Crafting <span className="text-teal-gradient">Digital</span><br />
+                Experiences.
+              </h1>
+              
+              <p className="text-gray-400 text-lg md:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                Hi, I'm <span className="text-white font-bold">Amit Pal</span>. A Full Stack Developer 
+                dedicated to building high-performance, interactive web applications with 
+                <span className="text-teal-400 font-semibold block sm:inline ml-1">
+                  {technologies[currentTech]}
+                </span>
+              </p>
             </div>
 
-            {/* Right Content - Profile Image */}
-            <div className="hidden md:flex w-1/2 items-center justify-center p-8">
-              <div className={`relative transform transition-all duration-1000 delay-900 ${
-                isVisible ? 'translate-x-0 opacity-100 rotate-12' : 'translate-x-10 opacity-0 rotate-0'
-              }`}>
-                <div className="w-64 h-64 lg:w-80 lg:h-80 bg-gradient-to-br from-teal-400 to-blue-500 rounded-2xl shadow-2xl shadow-teal-400/30 transform rotate-12 hover:rotate-6 transition-transform duration-500 overflow-hidden group">
-                  <div className="w-full h-full bg-gray-300 rounded-2xl transform -rotate-12 scale-105 flex items-center justify-center text-gray-600 group-hover:scale-110 transition-transform duration-500">
-                    {/* Placeholder for profile image */}
-                    <div className="text-center">
-                      <div className="w-32 h-32 bg-gray-400 rounded-full mx-auto mb-4 flex justify-center items-center">
-                        <img 
-                        className="object-cover h-30 w-30 rounded-full"
-                        src={photo} alt="Profile Photo" />
-                      </div>
-                      <p className="text-sm"></p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Floating elements */}
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-teal-400 rounded-full animate-bounce delay-1000"></div>
-                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-blue-400 rounded-full animate-bounce delay-1500"></div>
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+              <button className="px-8 py-4 bg-teal-400 hover:bg-teal-500 text-black font-bold rounded-2xl transition-all hover:scale-105 active:scale-95 flex items-center gap-2 shadow-xl shadow-teal-500/20">
+                View Projects <ArrowRight size={20} />
+              </button>
+              
+              <div className="flex items-center gap-3">
+                {[
+                  { icon: Instagram, href: "https://www.instagram.com/simple_smile_heart/" },
+                  { icon: Twitter, href: "https://x.com/PalAmit92585" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/in/amit-pal-82b1a8271/" },
+                  { icon: Github, href: "#" }
+                ].map((social, i) => (
+                  <a 
+                    key={i} 
+                    href={social.href}
+                    className="w-12 h-12 glass flex items-center justify-center rounded-2xl text-gray-400 hover:text-teal-400 hover:border-teal-400/50 transition-all hover:-translate-y-1"
+                  >
+                    <social.icon size={20} />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Mobile Layout */}
-          <div className="md:hidden bg-gray-800/90 backdrop-blur-lg rounded-2xl shadow-2xl shadow-teal-400/20 border border-gray-700/50 p-6 space-y-8">
-            
-            {/* Profile Image - Mobile */}
-            <div className="flex justify-center">
-              <div className={`relative transform transition-all duration-1000 ${
-                isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
-              }`}>
-                <div className="w-48 h-48 bg-gradient-to-br from-teal-400 to-blue-500 rounded-2xl shadow-xl shadow-teal-400/30 transform rotate-6 hover:rotate-3 transition-transform duration-500 overflow-hidden">
-                  <div className="w-full h-full bg-gray-300 rounded-2xl transform -rotate-6 scale-105 flex items-center justify-center text-gray-600">
-                    <div className="text-center">
-                      <div className="w-20 h-20 bg-gray-400 rounded-full mx-auto mb-2 flex justify-center items-center">
-                      <img 
-                        className="object-cover h-19 w-19 rounded-full"
-                        src={photo} alt="Profile Photo" />
-                      </div>
-                      <p className="text-xs"></p>
-                    </div>
-                  </div>
+          {/* Right Content - Visual */}
+          <div className="flex justify-center items-center">
+            <div className="relative group animate-float">
+              {/* Outer Glow */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-teal-400 to-blue-500 rounded-[2.5rem] opacity-20 blur-2xl group-hover:opacity-40 transition-opacity" />
+              
+              {/* Main Card */}
+              <div className="glass-teal relative w-72 h-96 md:w-80 md:h-[450px] rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl rotate-3 group-hover:rotate-0 transition-transform duration-700">
+                <img 
+                  src={photo} 
+                  alt="Amit Pal" 
+                  className="w-full h-full object-cover filter contrast-110 brightness-90 group-hover:scale-110 transition-transform duration-700" 
+                />
+                
+                {/* Overlay Info */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+                  <h3 className="text-2xl font-bold text-white">Amit Pal</h3>
+                  <p className="text-teal-400 text-sm font-medium">Full Stack Architect</p>
                 </div>
               </div>
-            </div>
 
-            {/* Content - Mobile */}
-            <div className="text-center space-y-6">
-              <div className={`transform transition-all duration-1000 delay-300 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
-              }`}>
-                <h1 className="text-xl text-white font-bold">
-                  Hello, I'm{" "}
-                  <span className="block text-3xl text-teal-400 mt-2 bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">
-                    Amit Pal
-                  </span>
-                </h1>
+              {/* Floating Decorative Elements */}
+              <div className="absolute -top-6 -right-6 w-20 h-20 glass-teal flex items-center justify-center rounded-2xl border border-teal-400/20 shadow-xl animate-bounce delay-300">
+                 <div className="w-8 h-8 bg-teal-400 rounded-lg rotate-12" />
               </div>
-              
-              <div className={`transform transition-all duration-1000 delay-500 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
-              }`}>
-                <h2 className="text-base text-white font-medium">
-                  I am a Full Stack Developer
-                  <span className="block mt-3 text-teal-400 font-bold text-lg min-h-[1.5rem]">
-                    <span className="inline-block animate-bounce">
-                      {technologies[currentTech]}
-                    </span>
-                    <span className="animate-pulse ml-1">_</span>
-                  </span>
-                </h2>
-              </div>
-
-              {/* Social Links - Mobile */}
-              <div className={`flex justify-center gap-6 pt-4 transform transition-all duration-1000 delay-700 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
-              }`}>
-                {[
-                  { href: "https://www.instagram.com/simple_smile_heart/", icon: Instagram },
-                  { href: "https://x.com/PalAmit92585", icon: Twitter },
-                  { href: "https://www.linkedin.com/in/amit-pal-82b1a8271/", icon: Linkedin }
-                ].map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 flex items-center justify-center border-2 border-teal-400 rounded-full text-teal-400 hover:bg-teal-400 hover:text-white transition-all duration-300 transform hover:scale-110 active:scale-95"
-                  >
-                    <social.icon size={20} />
-                  </a>
-                ))}
+              <div className="absolute -bottom-6 -left-6 px-4 py-2 glass-teal flex items-center gap-2 rounded-xl border border-blue-400/20 shadow-xl">
+                 <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                 <span className="text-xs font-bold text-white tracking-widest uppercase">Creative</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Second Section - New Empty Section */}
-     <Aboutme/>
+      {/* About Section Integration */}
+      <div className="relative z-10 -mt-10 pb-20">
+        <Aboutme />
+      </div>
     </div>
   );
 }
 
-export default Home;
+export default Home;

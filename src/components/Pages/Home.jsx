@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Instagram, Twitter, Linkedin, Github, ArrowRight } from "lucide-react";
-import photo from '/src/assets/photo.jpg';
+import mySelf from '/src/assets/mySelf.jpeg';
 import Aboutme from "./Aboutme";
 
 import ThreeAnimation from "../Extra/ThreeAnimation";
@@ -11,7 +11,7 @@ function Home() {
   
   const technologies = [
     "HTML5", "CSS3", "JavaScript", "React JS", "Node.js", 
-    "MongoDB", "Express", "TailwindCSS", "Next.js"
+    "MongoDB", "Express", "TailwindCSS"
   ];
 
   useEffect(() => {
@@ -102,7 +102,7 @@ function Home() {
               {/* Main Card */}
               <div className="glass-teal relative w-72 h-96 md:w-80 md:h-[450px] rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl rotate-3 group-hover:rotate-0 transition-transform duration-700">
                 <img 
-                  src={photo} 
+                  src={mySelf}
                   alt="Amit Pal" 
                   className="w-full h-full object-cover filter contrast-110 brightness-90 group-hover:scale-110 transition-transform duration-700" 
                 />
@@ -135,4 +135,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Home;
